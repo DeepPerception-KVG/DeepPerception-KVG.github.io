@@ -2,9 +2,13 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-.deepperception {
+.deepperception2 {
   font-variant: small-caps;
   font-weight: bold;
+}
+
+.content_index {
+  font-size: large;
 }
 
 
