@@ -2,6 +2,11 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.deepperception {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
