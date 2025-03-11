@@ -40,7 +40,16 @@
   <script src="./visualizer/data/data_public.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://kit.fontawesome.com/65fb0bea81.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+  });
+  </script>
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script> -->
 </head>
 <body>
 
@@ -220,7 +229,7 @@
         <div style="height: 30px;"></div> <!-- 固定高度空行 -->
         <div class="content_index has-text-justified">
             <p>
-                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box <span class="formula">`B = f_θ (X_I , X_T )`</span> through joint understanding of visual input X_I and textual query X_T , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Figure above, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both expert-level knowledge and advanced perceptual and reasoning abilities to pinpoint the precise features that distinguish the target from similar objects.
+                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box $B = f_\theta (X_I , X_T )$ through joint understanding of visual input X_I and textual query X_T , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Figure above, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both expert-level knowledge and advanced perceptual and reasoning abilities to pinpoint the precise features that distinguish the target from similar objects.
             </p>
         </div>
         
@@ -265,7 +274,7 @@
             First, data from multiple FGVR datasets were categorized into ten categories. 
             The first five categories were used directly for training, while the last five were used solely as unseen categories, with their data not being used for training. 
             Since there are no bounding box annotations in the original FGVR datasets, we employed Qwen2VL-7B to generate bounding boxes through entity-specific prompts (e.g., "Find and give the bounding box of Airbus A330").
-            With entity labels pre-verified for presence, this automated method achieved over 95\% accuracy, validated through manual checks.
+            With entity labels pre-verified for presence, this automated method achieved over 95% accuracy, validated through manual checks.
             To overcome the limitation of single-object dominance in existing datasets, as illustrated in the above figure, we synthesized composite images containing at least 2 entities from the same category (e.g., multiple dog species in one image) using horizontal, vertical, grid, or random layouts, adjusting bounding box coordinates to preserve annotation consistency while enforcing entity uniqueness. 
             This approach requires models to perform fine-grained visual comparisons through structured cognitive processes rather than relying on memorization.
             The final dataset, partitioned for two-stage training, balances real-world complexity with quality control, simulating scenarios demanding cognitive visual perception.
