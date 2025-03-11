@@ -1,0 +1,84 @@
+/* 定义全局变量 */
+:root {
+    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --primary-color: #ffffff; /* 白色背景 */
+    --secondary-color: #f9f9f9; /* 淡灰色，用于斑马条纹 */
+    --text-color: #333333; /* 深灰色字体 */
+    --border-color: #e0e0e0; /* 浅灰色边框 */
+    --hover-color: #f5f5f5; /* 鼠标悬停时的背景色 */
+    --highlight-color: #f2f2f2; /* 当前排序列的背景色 */
+    --shadow-color: rgba(0, 0, 0, 0.08); /* 阴影颜色 */
+    --border-gradient-start: #d1d1d1; /* 渐变边框起始颜色 */
+    --border-gradient-end: #f5f5f5; /* 渐变边框结束颜色 */
+}
+
+/* 通用表格样式 */
+table {
+    width: 100%;
+    border-collapse: separate; /* 使用 'separate' 以支持圆角和边框 */
+    border-spacing: 0; /* 消除单元格间距 */
+    font-family: var(--font-family);
+    font-size: 16px;
+    margin: 1em auto 2em auto;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 10px; /* 圆角 */
+    overflow: hidden;
+    /* 添加渐变边框 */
+    border: 1px solid transparent;
+    background-image: linear-gradient(var(--primary-color), var(--primary-color)), 
+                      linear-gradient(to bottom, var(--border-gradient-start), var(--border-gradient-end));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    /* 添加更柔和的阴影 */
+    box-shadow: 0 6px 10px var(--shadow-color);
+}
+
+/* 表头样式 */
+table th {
+    background-color: var(--primary-color);
+    font-weight: 600;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+}
+
+/* 表格单元格样式 */
+table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 去除最后一行的底部边框 */
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 斑马条纹效果 */
+table tr:nth-child(even) {
+    background-color: var(--secondary-color);
+}
+
+/* 行悬停效果 */
+table tr:hover {
+    background-color: var(--hover-color);
+}
+
+/* 高亮当前排序的列 */
+table#results[class*="js-sort-"] tbody tr td:nth-child(n) {
+    background-color: var(--highlight-color);
+}
+
+/* 可排序列的鼠标悬停效果 */
+.js-sort-number:hover,
+.js-sort:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* 最佳分数文本高亮 */
+.best-score-text {
+    color: #C6011F; /* 根据需要调整 */
+}

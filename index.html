@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Advancing Cognitive Visual Perception in MLLMs for Knowledge-Intensive Visual Grounding">
+  <meta name="keywords" content="Knowledge-Intensive Visual Grounding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> DeepPerception</title>
+
+
+
+  <!-- <link rel="icon" href="./static/images/logo.png"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <span class="DeepPerception" style="font-family: 'CustomFont', sans-serif;">DeepPerception</span>:
+            </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            Advancing Cognitive Visual Perception in MLLMs for Knowledge-Intensive Visual Grounding
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Xinyu_Ma2">Xinyu Ma</a><sup style="color:#d62828;">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Ziyang_Ding1">Ziyang Ding</a><sup style="color:#f77f00;">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Zhicong_Luo2">Zhicong Luo</a><sup style="color:#fcbf49">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Chi_Chen1">Chi Chen</a><sup style="color:#2a9d8f;">4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Zonghao_Guo1">Zonghao Guo</a><sup style="color:#2a9d8f">4</sup>,
+            </span><br>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Derek_F._Wong1">Derek F. Wong</a><sup style="color:#d62828;">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Xiaoyi_Feng4">Xiaoyi Feng</a><sup style="color:#f77f00">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Maosong_Sun1">Maosong Sun</a><sup style="color:#2a9d8f">4</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#d62828">1</sup>University of Macau,</span>
+            <span class="author-block"><sup style="color:#f77f00;">2</sup>Shandong University,</span><br>
+            <span class="author-block"><sup style="color:#fcbf49">3</sup>Northwestern Polytechnical University,</span>
+            <span class="author-block"><sup style="color:#2a9d8f">4</sup>Tsinghua University</span><br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/MaxyLee/DeepPerception"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Demo Link. -->
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/Michael4933/Migician"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🖼️</p>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span> -->
+              <!-- Model Link. -->
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/Michael4933/Migician"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Model</span>
+                </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/MaxyLee/KVG"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span> 
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/MaxyLee/KVG-Bench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Benchmark</span>
+                </a>
+              </span> 
+              <!-- Benchmark Link. -->
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/datasets/Michael4933/MIG-Bench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Benchmark</span>
+                </a>
+              </span> -->
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+        <img src="static/images/header.png " type="image/png">
+        <p class="subtitle has-text-centered">
+            (a) <span class="deepperception">DeepPerception</span> employs knowledge-driven reasoning to derive answers, while the baseline model directly outputs predictions without cognitive processing. 
+            (b) <span class="deepperception">DeepPerception</span> demonstrates superior cognitive visual perception capabilities that cannot be elicited in the foundation model through simplistic zero-shot CoT prompting.
+      </div>
+    </div>
+  </section>
+
+  
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Human experts excel at fine-grained visual discrimination by leveraging domain knowledge to refine perceptual features, a capability that remains underdeveloped in current Multimodal Large Language Models (MLLMs). Despite possessing vast expert-level knowledge, MLLMs struggle to integrate reasoning into visual perception, often generating direct responses without deeper analysis. <br>
+            To bridge this gap, we introduce knowledge-intensive visual grounding (KVG), a novel visual grounding task that requires both finegrained perception and domain-specific knowledge integration. To address the challenges of KVG, we propose <strong><span class="deepperception">DeepPerception</span></strong>, an MLLM enhanced with cognitive visual perception capabilities. Our approach consists of (1) an automated data synthesis pipeline that generates high-quality, knowledge-aligned training samples, and (2) a two-stage training framework combining supervised fine-tuning for cognitive reasoning scaffolding and reinforcement learning to optimize perceptioncognition synergy. To benchmark performance, we introduce KVG-Bench, a comprehensive dataset spanning 10 domains with 1.3K manually curated test cases. <br>
+            Experimental results demonstrate that DeepPerception significantly outperforms direct fine-tuning, achieving +8.08% accuracy improvements on KVG-Bench and exhibiting +4.60% superior cross-domain generalization over baseline approaches. Our findings highlight the importance of integrating cognitive processes into MLLMs for human-like visual perception and open new directions for multimodal reasoning research.
+
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+<section class="section">
+    <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">KVG-Bench</h2>
+        <img src="static/images/benchmark.png " type="image/png">
+        <div class="content has-text-justified">
+            <p>
+                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box B = f_θ (X_I , X_T ) through joint understanding of visual input X_I and textual query X_T , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Figure above, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both expert-level knowledge and advanced perceptual and reasoning abilities to pinpoint the precise features that distinguish the target from similar objects.
+            </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+
+<p style="margin-bottom: 100px;"></p>
+
+<section class="section">
+    <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Method</h2>
+        <img src="static/images/method.png " type="image/png">
+        <p class="subtitle has-text-centered">
+            
+        </p>
+            
+      </div>
+    </div>
+  </section>
+
+<p style="margin-bottom: 100px;"></p>
+
+
+
+<p style="margin-bottom: 100px;"></p>
+
+
+<section class="section">
+    <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">Experiments</h2>
+          <div id="results-carousel" class="carousel results-carousel">
+
+            <div class="box">
+              <div class="content has-text-centered">
+                <img src="static/images/main_result.png" type="image/png">
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="content has-text-centered">
+                <img src="static/images/fgvr.png" type="image/png">
+              </div>
+            </div>
+
+            <div class="box">
+                <div class="content has-text-centered">
+                  <img src="static/images/general.png" type="image/png">
+                </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">Citation</h2>
+    <pre><code>@misc{,
+    title={}, 
+    author={},
+    year={2025},
+    url={}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
