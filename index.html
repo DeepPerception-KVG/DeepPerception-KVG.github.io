@@ -337,6 +337,7 @@
             system and performed data filtering on the training data using the stage-1 model.
           </p>
       </div>
+      
       <div style="height: 15px;"></div>
       <div class="content_index has-text-justified">
         <p>
@@ -346,6 +347,23 @@
         <p align="center">$\mathcal{J}_{G R P O}(\theta)=\mathbb{E}\left[q \sim P(Q),\left\{o_i\right\}_{i=1}^G \sim \pi_{\theta_{o l d}}(O \mid q)\right]$</p>
         <p align="center">$\frac{1}{G} \sum_{i=1}^G \left(\frac{\pi_\theta\left(o_i \mid q\right)}{\pi_{\theta_{o l d}}\left(o_i \mid q\right)} A_i - \beta \mathbb{D}_{K L}\left(\pi_\theta| | \pi_{r e f}\right)\right)$</p>
         <p align="center">$\mathbb{D}_{K L}\left(\pi_\theta| | \pi_{r e f}\right)=\frac{\pi_{r e f}\left(o_i \mid q\right)}{\pi_\theta\left(o_i \mid q\right)}-\log \frac{\pi_{r e f}\left(o_i \mid q\right)}{\pi_\theta\left(o_i \mid q\right)}-1$</p>
+        <p>where $\varepsilon$ and $\beta$ are hyper-parameters and $A_i$ is the advantage computed based on a group of rewards $\{r_1, \ldots, r_G\}$ corresponding to the outputs of each group:</p>
+        <p align="center">$A_i=\frac{r_i-mean(\{r_1, \ldots, r_G\})}{std(\{r_1, \ldots, r_G\})}$</p>
+      </div>
+
+      <div style="height: 25px;"></div>
+      <div class="content_index has-text-justified">
+        <p>
+          <strong>Reward Modeling.</strong> We adopted a rule-based reward system specifically tailored for visual grounding tasks, comprising two types of rewards: Intersection over Union (IoU) reward and Format reward.
+          The IoU reward evaluates the spatial alignment between predicted bounding boxes and ground-truth annotations.
+          Given the ground-truth bounding box $B$ and the predicted bounding box $\tilde{B}$, the IoU reward is formally defined as:
+        </p>
+        <p align="center">$R_{\mathrm{IoU}}= 
+          \begin{cases}
+          \operatorname{IoU}(B, \tilde{B}), & \text { if } \operatorname{IoU}(B, \tilde{B}) \geq \tau \\ 
+          0, & \text { otherwise }
+          \end{cases}$</p>
+        
       </div>
     </div>
   </div>
