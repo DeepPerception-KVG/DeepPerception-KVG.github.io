@@ -126,7 +126,7 @@ body {
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #bbb;
+  border: 1px solid #9280B7;
   border-radius: 10px;
   padding: 0;
   font-size: 0;
@@ -135,6 +135,8 @@ body {
 .results-carousel video {
   margin: 0;
 }
+
+
 
 
 .interpolation-panel {
@@ -168,4 +170,10 @@ body {
 .caption {
   font-style: oblique;
   font-family: Georgia;
+}
+
+.caption-fig{
+  font-style: oblique;
+  font-family: Georgia;
+  font-size: larger
 }
