@@ -182,14 +182,14 @@
 </section>
 
 <section class="section">
-    <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="container" style="margin-top: -150px; margin-bottom: -170px;">
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content_index">
         <img src="static/images/header.png " type="image/png">
         <div style="height: 15px;"></div> <!-- 固定高度空行 -->
         <p class="subtitle has-text-centered caption">
-            (a) <span class="deepperception">DeepPerception</span> employs knowledge-driven reasoning to derive answers, while the baseline model directly outputs predictions without cognitive processing. 
-            (b) <span class="deepperception">DeepPerception</span> demonstrates superior cognitive visual perception capabilities that cannot be elicited in the foundation model through simplistic zero-shot CoT prompting.
+            Figure 1: (a) DeepPerception employs knowledge-driven reasoning to derive answers, while the baseline model directly outputs predictions without cognitive processing. 
+            (b) DeepPerception demonstrates superior cognitive visual perception capabilities that cannot be elicited in the foundation model through simplistic zero-shot CoT prompting.
         </p>
         </div>
     </div>
@@ -203,7 +203,7 @@
         <div class="content_index has-text-justified">
           <p style="width: 1000px; margin: 0 auto;">
             Human experts excel at fine-grained visual discrimination by leveraging domain knowledge to refine perceptual features, a capability that remains underdeveloped in current Multimodal Large Language Models (MLLMs). Despite possessing vast expert-level knowledge, MLLMs struggle to integrate reasoning into visual perception, often generating direct responses without deeper analysis. <br>
-            To bridge this gap, we introduce knowledge-intensive visual grounding (KVG), a novel visual grounding task that requires both finegrained perception and domain-specific knowledge integration. To address the challenges of KVG, we propose <strong><span class="deepperception">DeepPerception</span></strong>, an MLLM enhanced with cognitive visual perception capabilities. Our approach consists of (1) an automated data synthesis pipeline that generates high-quality, knowledge-aligned training samples, and (2) a two-stage training framework combining supervised fine-tuning for cognitive reasoning scaffolding and reinforcement learning to optimize perceptioncognition synergy. To benchmark performance, we introduce KVG-Bench, a comprehensive dataset spanning <strong>10</strong> domains with <strong>1.3K</strong> manually curated test cases. <br>
+            To bridge this gap, we introduce knowledge-intensive visual grounding (KVG), a novel visual grounding task that requires both finegrained perception and domain-specific knowledge integration. To address the challenges of KVG, we propose <strong>DeepPerception, an MLLM enhanced with cognitive visual perception capabilities</strong>. Our approach consists of (1) an automated data synthesis pipeline that generates high-quality, knowledge-aligned training samples, and (2) a two-stage training framework combining supervised fine-tuning for cognitive reasoning scaffolding and reinforcement learning to optimize perceptioncognition synergy. To benchmark performance, we introduce KVG-Bench, a comprehensive dataset spanning <strong>10</strong> domains with <strong>1.3K</strong> manually curated test cases. <br>
             Experimental results demonstrate that DeepPerception significantly outperforms direct fine-tuning, achieving <strong>+8.08%</strong> accuracy improvements on KVG-Bench and exhibiting <strong>+4.60%</strong> superior cross-domain generalization over baseline approaches. Our findings highlight the importance of integrating cognitive processes into MLLMs for human-like visual perception and open new directions for multimodal reasoning research.
 
           </p>
@@ -217,7 +217,7 @@
 <!-- --------------------------------------Benchmark------------------------------------------------- -->
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 deepperception2">Benchmark</h1>
+    <h1 class="title is-1 deepperception2">KVG-Bench</h1>
   </div>
 </section>
 
@@ -225,19 +225,24 @@
     <div class="container" style="margin-top: -60px; margin-bottom: -100px;">
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">KVG-Bench</h2>
         <img src="static/images/benchmark.png " type="image/png">
         <div style="height: 15px;"></div> <!-- 固定高度空行 -->
         <p class="subtitle has-text-centered caption">
-          (a) KVG-Bench images contain multiple subordinate-category entities (e.g., Boeing 777, 767, 757, 747, 737, 727, 717, 707 from top to bottom in the left image); (b) KVG-Bench exhibits high diversity across categories and entities.
+          Figure 2: (a) KVG-Bench images contain multiple subordinate-category entities (e.g., Boeing 777, 767, 757, 747, 737, 727, 717, 707 from top to bottom in the left image); (b) KVG-Bench exhibits high diversity across categories and entities.
         </p>
         <div style="height: 30px;"></div> <!-- 固定高度空行 -->
+        <h2 class="title is-3">Task Definition</h2>
         <div class="content_index has-text-justified">
             <p>
-                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box $B = f_\theta (X_I , X_T )$ through joint understanding of visual input X_I and textual query X_T , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Figure above, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both expert-level knowledge and advanced perceptual and reasoning abilities to pinpoint the precise features that distinguish the target from similar objects.
+                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box $B = f_\theta (X_I , X_T )$ through joint understanding of visual input $X_I$ and textual query $X_T$ , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Figure above, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both <strong>expert-level knowledge and advanced perceptual and reasoning abilities</strong> to pinpoint the precise features that distinguish the target from similar objects.
             </p>
         </div>
-        
+        <h2 class="title is-3">Human Evaluation</h2>
+        <div class="content_index has-text-justified">
+            <p>
+                To assess the diﬀiculty of KVG-Bench, we conducted human evaluations with 11 non-expert volunteers under two experimental settings: Closed-Book (no external resources) and Open-Book (single Wikipedia query/case to simulate expert-level knowledge integration). Participants were randomly assigned several categories, with each category at least five evaluators to mitigate knowledge bias. The evaluation results, as shown in Tab. 1, reveal significant performance differences between settings. The Open-Book Setting demonstrated significant performance elevation (78.83% accuracy) compared to Closed-Book results (56.41%). This validates that KVG-Bench requires synergistic integration of expert-level knowledge and fine-grained visual comparison, positioning it as a meaningful testbed for advancing cognitive visual perception in MLLMs.
+            </p>
+        </div>
       </div>
     </div>
   </section>
@@ -249,7 +254,7 @@
 
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 deepperception2">Methods</h1>
+    <h1 class="title is-1 deepperception2">Method</h1>
   </div>
 </section>
 
@@ -257,22 +262,21 @@
   <div class="container" style="margin-top: -45px; margin-bottom: -100px;">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content_index">
-        <h2 class="title is-3">Overview</h2>
+        <!-- <h2 class="title is-3">Overview</h2> -->
         <img src="static/images/method.png " type="image/png">
         <div style="height: 15px;"></div>
         <p class="subtitle has-text-centered caption">
-          Overview of the proposed data engine and two-stage training framework.
+          Figure 3: Overview of the proposed data engine and two-stage training framework.
         </p>
       </div>
     </div>
 </section>
 
-<section class="section">
+<!-- <section class="section">
   <div class="container" style="margin-top: -45px; margin-bottom: -100px;">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content_index">
         <h2 class="title is-3">Data Engine</h2>
-        <!-- <img src="static/images/method.png " type="image/png"> -->
         <div class="content_index has-text-justified">
           <p>
             The training data images for KVG must meet the following criteria: (1) they should include expert-level entity and bounding box annotations, and (2) the images should contain multiple similar objects to ensure the difficulty of the task.
@@ -288,7 +292,7 @@
       </div>
       </div>
     </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container" style="margin-top: -45px; margin-bottom: -100px;">
@@ -297,7 +301,7 @@
         <h2 class="title is-3">Chain-of-Thought Supervised Fine-Tuning</h2>
         <img src="static/images/figure-CoT.png " type="image/png">
         <p class="subtitle has-text-centered caption">
-          Case study using Chain-of-Thought data generated by Qwen2-VL-72B.
+          Figure 4: Example of Chain-of-Thought data generated by Qwen2-VL-72B.
         </p>
         <div style="height: 30px;"></div> <!-- 固定高度空行 -->
         <div class="content_index has-text-justified">
@@ -344,8 +348,7 @@
           <strong>Training Objective.</strong> Let $q$ denote the question and ${o_1, . . . , o_G}$ denote the sampled outputs from the old policy model πθold , then the optimization objective of
           policy model $\pi_{\theta}$ can be formally defined as: 
         </p>
-        <p align="center">$\mathcal{J}_{G R P O}(\theta)=\mathbb{E}\left[q \sim P(Q),\left\{o_i\right\}_{i=1}^G \sim \pi_{\theta_{o l d}}(O \mid q)\right]$</p>
-        <p align="center">$\frac{1}{G} \sum_{i=1}^G \left(\frac{\pi_\theta\left(o_i \mid q\right)}{\pi_{\theta_{o l d}}\left(o_i \mid q\right)} A_i - \beta \mathbb{D}_{K L}\left(\pi_\theta| | \pi_{r e f}\right)\right)$</p>
+        <p align="center">$\mathcal{J}_{G R P O}(\theta)=\mathbb{E}\left[q \sim P(Q),\left\{o_i\right\}_{i=1}^G \sim \pi_{\theta_{o l d}}(O \mid q)\right]\frac{1}{G} \sum_{i=1}^G \left(\frac{\pi_\theta\left(o_i \mid q\right)}{\pi_{\theta_{o l d}}\left(o_i \mid q\right)} A_i - \beta \mathbb{D}_{K L}\left(\pi_\theta| | \pi_{r e f}\right)\right),$</p>
         <p align="center">$\mathbb{D}_{K L}\left(\pi_\theta| | \pi_{r e f}\right)=\frac{\pi_{r e f}\left(o_i \mid q\right)}{\pi_\theta\left(o_i \mid q\right)}-\log \frac{\pi_{r e f}\left(o_i \mid q\right)}{\pi_\theta\left(o_i \mid q\right)}-1$</p>
         <p>where $\varepsilon$ and $\beta$ are hyper-parameters and $A_i$ is the advantage computed based on a group of rewards $\{r_1, \ldots, r_G\}$ corresponding to the outputs of each group:</p>
         <p align="center">$A_i=\frac{r_i-mean(\{r_1, \ldots, r_G\})}{std(\{r_1, \ldots, r_G\})}$</p>
@@ -381,16 +384,64 @@
 
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 deepperception2">Experiments Results</h1>
+    <h1 class="title is-1 deepperception2">Experiment & Analysis</h1>
   </div>
 </section>
 
-
 <section class="section">
+    <div class="container" style="margin-top: -45px; margin-bottom: -100px;">
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content_index">
+          <h2 class="title is-3">Main Results</h2>
+          <img src="static/images/main_result.png " type="image/png">
+          <div style="height: 15px;"></div>
+          <p class="subtitle has-text-centered caption">
+            Table 1: KVG-Bench reults of DeepPerception and baseline models.
+          </p>
+          <div style="height: 30px;"></div> <!-- 固定高度空行 -->
+          <div class="content_index has-text-justified">
+            <p>
+                As demonstrated in Tab. 1, our DeepPerception model achieves significant performance improvements by integrating cognitive visual perception capabilities, validating the hypothesis that human-inspired cognition-perception synergy enhances visual perception. On in-domain categories, the model attains 63.13% average accuracy, surpassing all 7B-scale baselines (e.g., +10.5% over SFT) and outperforming 70B-scale models such as InternVL2-Llama3-76B (59.22%). For out-of-domain generalization, it achieves 60.85% accuracy —comparable to 70B-scale models—while demonstrating near-human performance in categories where the model possesses richer knowledge, such as Dog (85.60% vs. human evaluators’78.89%).<br>
+                These results confirm that DeepPerception’s success stems from its ability to emulate human-like cognitive processes: iterative knowledge-guided reasoning refines perceptual hypotheses (e.g., verifying anatomical features stepwise), while reinforcement learning aligns these hypotheses with precise visual outputs. The consistent superiority over non-cognitive baselines, particularly in fine-grained categories like Car (86.54% vs. human 85.56%), proves that structured knowledge integration—not mere visual memorization —drives performance gains. By bridging knowledge reasoning with perception, DeepPerception establishes new state-of-the-art results on KVG-Bench, demonstrating that cognitive mechanisms central to biological vision can be effectively operationalized in multimodal AI systems.
+            </p>
+            </div>
+
+          <div style="height: 30px;"></div> <!-- 固定高度空行 -->
+
+          <img src="static/images/fgvr.png " type="image/png">
+          <div style="height: 15px;"></div>
+          <p class="subtitle has-text-centered caption">
+            Table 2: FGVR reults of DeepPerception and baseline models.
+          </p>
+
+          <div class="content_index has-text-justified">
+            <p>
+                To validate the generalizability of cognitive visual perception, we conducted experiments on FGVR datasets. Unlike the two-stage training paradigm used for KVG, only the reinforcement learning phase was applied here, as base models already exhibit strong baseline performance on FGVR. As shown in Tab. 2, our DeepPerception model achieves state-of-the-art results across all categories, demonstrating universal performance gains: DeepPerception achieves state-of-the-art results across all FGVR categories (83.21% average accuracy), outperforming Qwen2-VL-7B by +3.64%. This evidence strongly supports that cognitive visual perception, characterized by iterative knowledge-visual alignment, provides universal benefits for fine-grained perception, mirroring human experts’ ability to combine sensory input with conceptual understanding.
+            </p>
+            </div>
+
+          <div style="height: 30px;"></div> <!-- 固定高度空行 -->
+
+          <img src="static/images/general.png " type="image/png">
+          <div style="height: 15px;"></div>
+          <p class="subtitle has-text-centered caption">
+            Table 3: Performance Comparison of DeepPerception and Qwen2VL-7B on general multimodal benchmarks.
+          </p>
+          <div class="content_index has-text-justified">
+            <p>
+                To comprehensively assess the model’s general capabilities across diverse multimodal scenarios, we conducted evaluations on established multimodal benchmarks. As shown in Tab. 3, DeepPerception maintains performance comparable to the base model, demonstrating preserved general capabilities without degradation.
+            </p>
+            </div>
+        </div>
+      </div>
+  </section>
+
+
+<!-- <section class="section">
     <div class="container" style="margin-top: -60px; margin-bottom: -100px;">
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content_index">
-          <!-- <h2 class="title is-3">Experiments</h2> -->
+
           <div id="results-carousel" class="carousel results-carousel">
 
             <div class="box">
@@ -415,7 +466,7 @@
         </div>
       </div>
     </div>
-  </section>
+</section> -->
 
   <p style="margin-bottom: 100px;"></p>
 
