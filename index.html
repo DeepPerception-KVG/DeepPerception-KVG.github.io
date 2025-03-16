@@ -234,7 +234,23 @@
         <h2 class="title is-3">Task Definition</h2>
         <div class="content_index has-text-justified">
             <p>
-                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box $B = f_\theta (X_I , X_T )$ through joint understanding of visual input $X_I$ and textual query $X_T$ , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Fig. <a href="#figure_2">2</a>, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both <strong>expert-level knowledge and advanced perceptual and reasoning abilities</strong> to pinpoint the precise features that distinguish the target from similar objects.
+                The task of knowledge-intensive visual grounding (KVG) is to predict a bounding box $B = f_\theta (X_I , X_T )$ through joint understanding of visual input $X_I$ and textual query $X_T$ , requiring fine-grained alignment between multimodal representations. While sharing structural similarities with referring expression comprehension (REC), this task significantly elevates the challenge beyond standard REC tasks. As exemplified in Fig. <a href="#figure_2">2 (a)</a>, the queries of KVG involve fine-grained entity specifications (e.g., “Boeing 747”) rather than generic categories such as “aircraft”. Additionally, each image contains multiple objects from the same category of the target object (e.g., multiple aircraft in a single image). This setup requires both <strong>expert-level knowledge and advanced perceptual and reasoning abilities</strong> to pinpoint the precise features that distinguish the target from similar objects.
+            </p>
+        </div>
+        <div style="height: 15px;"></div> <!-- 固定高度空行 -->
+        <h2 class="title is-3">Benchmark Construction</h2>
+        <div class="content_index has-text-justified">
+            <p>
+                KVG-Bench comprises 1,336 test instances spanning 10 categories with 882 distinct entities, as statistically visualized in Fig. <a href="#figure_2">2 (b)</a>.
+                The construction includes two key parts: image collection and data annotation. <br>
+                We designed a meticulous collection process to ensure the diversity and complexity of the images.
+                First, we carefully selected 10 categories from the field of fine-grained visual recognition (FGVR) that are suitable for visual grounding, excluding categories which are challenging for object localization such as "sports" and "scene".
+                Second, an entity list for each category was systematically developed through initial extraction of fine-grained labels from existing datasets, followed by comprehensive enrichment of entity names via ChatGPT-assisted expansion.
+                We then retrieved web images using these entity names as search queries, enforcing strict quality criteria: each image must contain at least two entities from the same category with clear visual disparities.  <br>
+                The annotation process prioritized quality control.
+                Five annotators manually annotated each image with bounding boxes and entity labels by cross-referencing contextual information (e.g. caption, webpage metadata) with authoritative sources (e.g., Wikipedia entries) to verify entity identities.
+                To ensure consistency, the annotations underwent independent re-evaluation by annotators who did not participate in the initial labeling, with conflicting cases cross-verified through multi-annotator reconciliation and persistently inconsistent instances eliminated to ensure annotation accuracy.
+                By integrating strict validation protocols and expert-aligned annotation workflows, KVG-Bench sets a new standard for evaluating cognitive visual perception in multimodal systems. 
             </p>
         </div>
         <div style="height: 15px;"></div> <!-- 固定高度空行 -->
